@@ -32,11 +32,11 @@ jobs:
          key: ${{ secrets.SSHKEY }}
          port: ${{ secrets.PORT }}
          script: |
-          cd ./toko
+          cd ./BeliKuy
           sudo chmod 777 /var/run/docker.sock
           git pull origin main 
-          docker stop belikuy
-          docker rm belikuy
+          docker stop BeliKuy
+          docker rm BeliKuy
           docker rmi ${{ secrets.DOCKER_USER }}/${{ secrets.IMAGE }}:latest
           docker pull ${{ secrets.DOCKER_USER }}/${{ secrets.IMAGE }}:latest
           docker build -t ${{ secrets.IMAGE }}:latest .
