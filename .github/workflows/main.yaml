@@ -21,7 +21,7 @@ jobs:
               uses: docker/build-push-action@v3
               with:
                   context: .
-                  file: ./Dockerfile
+                  file: ./dockerfile
                   push: true
                   tags: ${{ secrets.DOCKER_USER }}/bk:latest
             - name: executing remote ssh commands using password
