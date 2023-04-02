@@ -35,8 +35,8 @@ jobs:
           cd ./BeliKuy
           sudo chmod 777 /var/run/docker.sock
           git pull origin main 
-          docker stop BeliKuy
-          docker rm BeliKuy
+          docker stop belikuy
+          docker rm belikuy
           docker rmi ${{ secrets.DOCKER_USER }}/${{ secrets.IMAGE }}:latest
           docker pull ${{ secrets.DOCKER_USER }}/${{ secrets.IMAGE }}:latest
           docker build -t ${{ secrets.IMAGE }}:latest .
