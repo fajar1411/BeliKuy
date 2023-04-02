@@ -32,8 +32,7 @@ jobs:
          key: ${{ secrets.SSHKEY }}
          port: ${{ secrets.PORT }}
          script: |
-          cd frizky861@testoko/aset/belikuy
-          sudo chmod 777 /var/run/docker.sock
+          cd aset/belikuy
           docker stop belikuy
           docker rm belikuy
           docker rmi ${{ secrets.DOCKER_USER }}/${{ secrets.IMAGE }}:latest
