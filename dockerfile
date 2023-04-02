@@ -13,4 +13,4 @@ ADD . /app
 RUN go build -o belikuy .
 
 ##jalankan executeable
-CMD ["/app/belikuy"]
+CMD ["./belikuy"]
