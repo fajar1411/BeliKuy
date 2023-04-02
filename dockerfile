@@ -1,5 +1,3 @@
-FROM golang:1.20-alpine  as build
-
 ##buat folder APP
 RUN mkdir /app
 
@@ -10,7 +8,7 @@ WORKDIR /app
 ADD . /app
 
 ##buat executeable
-RUN go build -o belikuy .
+RUN go build -o main .
 
 ##jalankan executeable
-CMD ["/belikuy "]
+CMD ["/app/main"]
