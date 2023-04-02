@@ -11,4 +11,4 @@ ADD . /app
 RUN go build -o main .
 
 ##jalankan executeable
-CMD ["/app/main"]
+CMD ["/main"]
