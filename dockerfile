@@ -10,7 +10,7 @@ WORKDIR /app
 ADD . /app
 
 ##buat executeable
-RUN go build -o belikuy .
+RUN go build -o belikuy 
 
 ##jalankan executeable
 CMD ["/belikuy"]
