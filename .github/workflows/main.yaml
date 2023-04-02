@@ -33,8 +33,7 @@ jobs:
          port: ${{ secrets.PORT }}
          script: |
           cd ./belikuy
-          sudo chmod 777 /var/run/docker.sock
-          git pull origin main 
+          sudo chmod 777 /var/run/docker.sock 
           docker stop belikuy
           docker rm belikuy
           docker rmi ${{ secrets.DOCKER_USER }}/${{ secrets.IMAGE }}:latest
