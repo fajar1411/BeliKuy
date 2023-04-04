@@ -24,12 +24,14 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
+          context: .
           push: true
           tags: ${{ secrets.DOCKER_USER }}/belikuy:latest
       - 
         name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
+        
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSHKEY }}
