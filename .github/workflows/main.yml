@@ -27,7 +27,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USER }}/ ${{ secrets.DOCKER_IMAGES }}:latest       
+        tags: ${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_IMAGES }}:latest
     - 
       name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.7
@@ -39,6 +39,7 @@ jobs:
         script: |
           cd ./belikuy
           git pull origin main 
+          sudo chmod 777 /var/run/docker.sock
           docker stop ${{ secrets.DOCKER_CONTAINER }}
           docker rm ${{ secrets.DOCKER_CONTAINER }}   
           docker rmi ${{ secrets.DOCKER_USER }}/ ${{secrets.DOCKER_IMAGES }}   
