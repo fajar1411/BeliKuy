@@ -4,6 +4,17 @@ on:
     branches:
       - main
 jobs:
+ auto-pull:
+    name: PullOriginMain
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v2
+    - run: |0
+        git config user.name ${{ secrets.GIT_USER }}
+        git config user.email ${{ secrets.GIT_MAIL }}
+        git config github.token ${{ secrets.GIT_TOKEN }}
+        git pull origin branchYY
+      working-directory:./belikuy
   build:
     runs-on: ubuntu-latest
     steps:
