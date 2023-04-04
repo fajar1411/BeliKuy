@@ -37,7 +37,7 @@ jobs:
         key: ${{ secrets.SSHKEY }}
         port: ${{ secrets.PORT }}
         script: |
-          cd ./belikuy
+          cd aset/belikuy
           git pull origin main 
           sudo chmod 777 /var/run/docker.sock
           docker stop ${{ secrets.DOCKER_CONTAINER }}
