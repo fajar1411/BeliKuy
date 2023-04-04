@@ -27,7 +27,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USER }}/${{secrets.DOCKER_IMAGES }}
+          tags: ${{ secrets.DOCKER_USER }}/${{secrets.DOCKER_IMAGES }}:latest
     - 
       name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.7
@@ -44,4 +44,4 @@ jobs:
           docker rm ${{ secrets.DOCKER_CONTAINER }}   
           docker rmi ${{ secrets.DOCKER_USER }}/ ${{secrets.DOCKER_IMAGES }}:latest  
           docker pull ${{ secrets.DOCKER_USER }}/ ${{secrets.DOCKER_IMAGES }}:latest
-          docker run -d -p --name ${{ secrets.DOCKER_CONTAINER }} ${{ secrets.DOCKER_USER }}/ ${{ secrets.DOCKER_IMAGES }}:latest   8080:8080 -e SERVER_PORT=${{ secrets.SERVER_PORT }} -e DB_USER=${{ secrets.DB_USER }} -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} -e DB_HOST=${{ secrets.DB_HOST }} -e DB_PORT=${{ secrets.DB_PORT }} -e DB_NAME=${{ secrets.DB_NAME }} -e CLOUDINARY_API_KEY=${{secrets.CLOUDINARY_API_KEY}} -e CLOUDINARY_API_SECRET=${{secrets.CLOUDINARY_API_SECRET}} -e CLOUDINARY_CLOUD_NAME=${{secrets.CLOUDINARY_CLOUD_NAME}} -e CLOUDINARY_UPLOAD_FOLDER=${{secrets.CLOUDINARY_UPLOAD_FOLDER}} 
+          docker run -d -p 8080:8080 -e SERVER_PORT=${{ secrets.SERVER_PORT }} -e DB_USER=${{ secrets.DB_USER }} -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} -e DB_HOST=${{ secrets.DB_HOST }} -e DB_PORT=${{ secrets.DB_PORT }} -e DB_NAME=${{ secrets.DB_NAME }} -e CLOUDINARY_API_KEY=${{secrets.CLOUDINARY_API_KEY}} -e CLOUDINARY_API_SECRET=${{secrets.CLOUDINARY_API_SECRET}} -e CLOUDINARY_CLOUD_NAME=${{secrets.CLOUDINARY_CLOUD_NAME}} -e CLOUDINARY_UPLOAD_FOLDER=${{secrets.CLOUDINARY_UPLOAD_FOLDER}} --name ${{ secrets.DOCKER_CONTAINER }} ${{ secrets.DOCKER_USER }}/ ${{ secrets.DOCKER_IMAGES }}:latest 
