@@ -8,7 +8,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - 
+    -
       name: Checkout
       uses: actions/checkout@v3
     -
@@ -24,10 +24,10 @@ jobs:
       name: Build and push
       uses: docker/build-push-action@v3
       with:
-        context: .
-        file: ./Dockerfile
-        push: true
-        tags: ${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_IMAGES }}:latest
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_USER }}/${{secrets.DOCKER_IMAGES }}:latest
     - 
       name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.7
