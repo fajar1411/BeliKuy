@@ -46,8 +46,8 @@ jobs:
          port: ${{ secrets.PORT }}
          script: |
           cd aset/belikuy
-          docker stop ${{ secrets.DOCKER_CONTAINER }
-          docker rm ${{ secrets.DOCKER_CONTAINER }
+          docker stop ${{ secrets.DOCKER_CONTAINER }}
+          docker rm ${{ secrets.DOCKER_CONTAINER }}
           docker rmi ${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_IMAGES }}:latest
           docker pull ${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_IMAGES }}:latest
           docker run --name ${{ secrets.DOCKER_CONTAINER }} -d -e  SERVER_PORT=${{ secrets.SERVER_PORT }} -e DB_USER=${{ secrets.DB_USER }} -e DB_PASSWORD=${{ secrets.DB_PASSWOD }} -e DB_HOST=${{ secrets.DB_HOST }} -e DB_PORT=${{ secrets.DB_PORT }} -e DB_NAME=${{ secrets.DB_NAME }} -e CLOUDINARY_CLOUD_NAME=${{ secrets.CLOUDINARY_CLOUD_NAME }} -e CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }} -e CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }} -p 80:8080 ${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_IMAGES }}:latest
