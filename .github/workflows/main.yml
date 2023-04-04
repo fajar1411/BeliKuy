@@ -25,7 +25,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USER }}/belikuy
+          tags: ${{ secrets.DOCKER_USER }}/belikuy:latest
       - 
         name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
