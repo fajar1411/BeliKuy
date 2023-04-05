@@ -40,13 +40,13 @@ func GetConfig() *AppConfig {
 func initConfig() *AppConfig {
 	var defaultConfig AppConfig
 
-// 	if _, exist := os.LookupEnv("SECRET"); !exist {
-// 		if err := godotenv.Load(".env"); err != nil {
-// 			log.Println(err)
-// 		}
-// 	}
+// if _, exist := os.LookupEnv("SECRET"); !exist {
+	// 	if err := godotenv.Load(".env"); err != nil {
+	// 		log.Fatal(err)
+	// 	}
+	// }
 
-// 	// SECRET = os.Getenv("SECRET")
+	// // SECRET = os.Getenv("SECRET")
 	cnvServerPort, err := strconv.Atoi(os.Getenv("SERVER_PORT"))
 	// fmt.Println("ini port", cnvServerPort)
 	if err != nil {
