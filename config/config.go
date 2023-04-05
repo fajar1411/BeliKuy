@@ -47,7 +47,7 @@ func initConfig() *AppConfig {
 
 	// SECRET = os.Getenv("SECRET")
 	cnvServerPort, err := strconv.Atoi(os.Getenv("SERVER_PORT"))
-	// fmt.Println("ini port", cnvServerPort)
+	fmt.Println("ini port", cnvServerPort)
 	if err != nil {
 		log.Fatal("Cannot parse Server Port variable")
 		return nil
