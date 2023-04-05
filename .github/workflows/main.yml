@@ -27,7 +27,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USER }}/belikuy:latest          
+        tags: ${{ secrets.DOCKER_USER }}/test:latest          
     - 
       name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.7
