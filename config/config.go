@@ -41,7 +41,7 @@ func initConfig() *AppConfig {
 	var defaultConfig AppConfig
 
 	if _, exist := os.LookupEnv("SECRET"); !exist {
-		if err := godotenv.Load("local.env"); err != nil {
+		if err := godotenv.Load("env"); err != nil {
 			log.Println(err)
 		}
 	}
