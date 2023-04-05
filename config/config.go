@@ -10,7 +10,6 @@ import (
 )
 
 type AppConfig struct {
-	DB_DRIVER                string
 	DB_USERNAME              string
 	DB_PASSWORD              string
 	DB_HOST                  string
