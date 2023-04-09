@@ -22,7 +22,7 @@ jobs:
        run: "npm install -g  newman"
     - 
        name: "Install Newman"
-       run: "nnpm install-g newman-reporter-htmlextra"
+       run: "npm install -g newman-reporter-htmlextra"
 
     -
        name: "Run test Newman"
