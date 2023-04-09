@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "396d0ded-017e-4ee0-a15d-306db55ebfc4",
+		"name": "pelanggan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24530186"
+	},
+	"item": [
+		{
+			"name": "post regis",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"status 200\",  function(){\r",
+							"    pm.response.to.have.status(201);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"body\",  function(){\r",
+							"  pm.expect(pm.response.text()).to.include(\"nama\");\r",
+							"  \r",
+							"  pm.expect(pm.response.text()).to.include(\"phone\");\r",
+							"  pm.expect(pm.response.text()).to.include(\"tanggal\");\r",
+							"\r",
+							"})\r",
+							"\r",
+							"pm.test(\"status valid\",  function(){\r",
+							"  var data = pm.response.json();\r",
+							"  pm.expect(data.MSG).to.eql(\"Mengisi Form Berhasil\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"status valid\",  function(){\r",
+							"\r",
+							"  pm.response.to.have.status(\"Created\")\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJ1c2VySUQiOjJ9.Bi_jStkyZP2Fyn_0KUkXjE9fb5VEMKWPEpgIjVe3Y0c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nama",
+							"value": "budiss",
+							"type": "text"
+						},
+						{
+							"key": "Email",
+							"value": "budis@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "085891340876",
+							"type": "text"
+						},
+						{
+							"key": "tanggal",
+							"value": "14-11-1997",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "budis",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/costumer/form",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"costumer",
+						"form"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"status 200\",  function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"ada token\",  function(){\r",
+							"  pm.expect(pm.response.text()).to.include(\"token\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"status valid\",  function(){\r",
+							"  var data = pm.response.json();\r",
+							"  pm.expect(data.MSG).to.eql(\"Login berhasil\");\r",
+							"})\r",
+							"\r",
+							"// pm.test(\"status 200\",  function(){\r",
+							"//     pm.response.to.have.status(401);\r",
+							"// })\r",
+							"\r",
+							"// pm.test(\"status valid\",  function(){\r",
+							"//   var data = pm.response.json();\r",
+							"//   pm.expect(data.message).to.eql(\"email belum terdaftar\");\r",
+							"// })"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "alamat",
+							"value": "sumut",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "fajar",
+							"type": "text"
+						},
+						{
+							"key": "hp",
+							"value": "08575664545",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "fajar861@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/costumer/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"costumer",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
