@@ -21,6 +21,9 @@ type AppConfig struct {
 	CLOUDINARY_API_KEY       string
 	CLOUDINARY_API_SECRET    string
 	CLOUDINARY_UPLOAD_FOLDER string
+	ENV_POST string
+	COLLECTION_POST string
+	POST_KEY string
 }
 
 var lock = &sync.Mutex{}
@@ -69,6 +72,9 @@ func initConfig() *AppConfig {
 	}
 	defaultConfig.DB_PORT = uint(cnvDBPort)
 	defaultConfig.JWT_SECRET = os.Getenv("JWT_SECRET")
+	defaultConfig.ENV_POST = os.Getenv("ENV_POST")
+	defaultConfig.COLLECTION_POST = os.Getenv("COLLECTION_POST")
+	defaultConfig.POST_KEY = os.Getenv("POST_KEY")
 
 	return &defaultConfig
 }
