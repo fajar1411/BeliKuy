@@ -12,8 +12,8 @@ jobs:
     - uses: matt-ball/newman-action@master
       with:
         apiKey: ${{ secrets.POST_KEY }}
-        collection: ${{ secrets.COLLECTION_POST }}
-        environment: ${{ secrets.ENV_POST}}
+        collection: test/postman
+        environment: test/postman
     - 
       name: Checkout
       uses: actions/checkout@v3
