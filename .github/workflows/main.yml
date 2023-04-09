@@ -17,6 +17,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18"
+    - |
+         name: "Install Newman"
+         run: "npm install -g newman"
+    - 
+        name: "Install Newman"
+        run: "npm install -g newman-reporter-htmlextra"
+
     -
       name: Login to Docker Hub
       uses: docker/login-action@v2
@@ -51,4 +58,5 @@ jobs:
           docker rmi ${{ secrets.DOCKER_USER }}/test
           docker pull ${{ secrets.DOCKER_USER }}/test-
           docker run -d -p 80:8080 -e SERVER_PORT=${{ secrets.SERVER_PORT }} -e DB_USERNAME=${{ secrets.DB_USERNAME}} -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} -e DB_HOST=${{ secrets.DB_HOST }} -e DB_PORT=${{ secrets.DB_PORT }} -e DB_NAME=${{ secrets.DB_NAME }} -e CLOUDINARY_API_KEY=${{secrets.CLOUDINARY_API_KEY}} -e CLOUDINARY_API_SECRET=${{secrets.CLOUDINARY_API_SECRET}} -e CLOUDINARY_CLOUD_NAME=${{secrets.CLOUDINARY_CLOUD_NAME}} -e CLOUDINARY_UPLOAD_FOLDER=${{secrets.CLOUDINARY_UPLOAD_FOLDER}}  --name test ${{ secrets.DOCKER_USER }}/test:latest
+          newman run pelanggan.postman_collection.json -e myapi.postman_environment.json -r htmlextra --reporter-htmlextra-export htmlreport.html --reporter-htmlextra-darktheme > runreport1.html
          
