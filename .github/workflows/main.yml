@@ -8,6 +8,27 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+    -
+      uses: actions/setup-node@v2
+      with:
+        node-version: "18"
+    - |
+       name: "Install Newman"
+       run: "npm install -g newman"
+    - 
+       name: "Install Newman"
+       run: "npm install -g newman-reporter-htmlextra"
+    -
+       name: "Run test Newman"
+       run: "newman run pelanggan.postman_collection.json -e myapi.postman_environment.json -r htmlextra --reporter-htmlextra-export htmlreport.html --reporter-htmlextra-darktheme > runreport1.html"
+    -  name: publish report
+       uses: MeilCli\slack-upload-file@v1
+       with:
+         slack_token: ${{SLACK_TOKEN }}
+         file_path: './potsman/htmlreport.html'
+         file_name: 'postmanReport.html'
+         file_type: 'html'
+         channels: 'tes'
     - 
       name: Checkout
       uses: actions/checkout@v3
