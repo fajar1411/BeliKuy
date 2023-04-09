@@ -55,12 +55,12 @@ jobs:
           npm install -g newman
           npm install -g newman-reporter-htmlextra
           newman run pelanggan.postman_collection.json -e myapi.postman_environment.json -r htmlextra --reporter-htmlextra-export htmlreport.html --reporter-htmlextra-darktheme > runreport1.html
-    - name: publish report
-      uses: MeilCli\slack-upload-file@v1
-      with:
-        slack_token: ${{SLACK_TOKEN }}
-        file_path: './postman/htmlreport.html'
-        file_name: 'postmanReport.html'
-        file_type: 'html'
-        channels: 'tes'
+#     - name: publish report
+#       uses: MeilCli\slack-upload-file@v1
+#       with:
+#         slack_token: ${{SLACK_TOKEN }}
+#         file_path: './postman/htmlreport.html'
+#         file_name: 'postmanReport.html'
+#         file_type: 'html'
+#         channels: 'tes'
          
