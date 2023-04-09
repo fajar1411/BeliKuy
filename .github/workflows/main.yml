@@ -8,12 +8,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: matt-ball/newman-action@master
-      with:
-        apiKey: ${{ secrets.POST_KEY }}
-        collection: pelanggan.postman_collection.json
-        environment: myapi.postman_environment.json
+ 
     - 
       name: Checkout
       uses: actions/checkout@v3
