@@ -18,23 +18,16 @@ jobs:
         with:
           node-version: "18"
     - 
-         name: "Install Newman"
-         run: "npm install  newman"
+       name: "Install Newman"
+       run: "npm install  newman"
     - 
-        name: "Install Newman"
-        run: "npm install  newman-reporter-htmlextra"
+       name: "Install Newman"
+       run: "npm install  newman-reporter-htmlextra"
 
     -
-        name: "Run test Newman"
-        run: "newman run pelanggan.postman_collection.json -e myapi.postman_environment.json -r htmlextra --reporter-htmlextra-export htmlreport.html --reporter-htmlextra-darktheme > runreport1.html"
-    -   name: publish report
-        uses: MeilCli\slack-upload-file@v1
-         with:
-          slack_token: ${{SLACK_TOKEN }}
-          file_path: './postman/htmlreport.html'
-          file_name: 'postmanReport.html'
-          file_type: 'html'
-          channels: 'tes'
+       name: "Run test Newman"
+       run: "newman run pelanggan.postman_collection.json -e myapi.postman_environment.json -r htmlextra --reporter-htmlextra-export htmlreport.html --reporter-htmlextra-darktheme > runreport1.html"
+    
     -
       name: Login to Docker Hub
       uses: docker/login-action@v2
