@@ -12,13 +12,7 @@ jobs:
     - 
       name: Checkout
       uses: actions/checkout@v3
-    -
-      uses: actions/setup-node@v2
-      with:
-        node-version: "18"
-    - |
-       name: "Install Newman"
-       run: "npm install -g newman"
+  
     
     -
       name: Login to Docker Hub
@@ -37,20 +31,7 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_USER }}/test:latest   
-    - 
-       name: "Install Newman"
-       run: "npm install -g newman-reporter-htmlextra"
-    -
-       name: "Run test Newman"
-       run: "newman run pelanggan.postman_collection.json -e myapi.postman_environment.json -r htmlextra --reporter-htmlextra-export htmlreport.html --reporter-htmlextra-darktheme > runreport1.html"
-    -  name: publish report
-       uses: MeilCli\slack-upload-file@v1
-       with:
-         slack_token: ${{SLACK_TOKEN }}
-         file_path: './potsman/htmlreport.html'
-         file_name: 'postmanReport.html'
-         file_type: 'html'
-         channels: 'tes'
+ 
     - 
       name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.7
