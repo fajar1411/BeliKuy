@@ -19,7 +19,7 @@ jobs:
           node-version: "18"
     - 
        name: "Install Newman"
-       run: "npm install -g  newman"
+       run: "npm install  newman"
     - 
        name: "Install Newman"
        run: "nnpm install -g newman newman-reporter-htmlextra"
